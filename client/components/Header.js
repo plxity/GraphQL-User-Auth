@@ -5,13 +5,15 @@ import {Link} from 'react-router';
 import gql from 'graphql-tag';
  class Header extends Component {
      logout(){
-        
+        this.props.mutate({
+            refetchQueries:[{query}]
+        })
      }
     renderButtons(){
         const {loading,user}= this.props.data;
         if(loading){
             return(
-                <div>
+            <div>
             </div>
 
             )
@@ -48,7 +50,12 @@ import gql from 'graphql-tag';
   }
 }
 const mutation= gql`
-
+    mutation{
+        logout{
+            id
+            email
+        }
+    }
 
 `;
 export default graphql(mutation)(graphql(query)(Header));
