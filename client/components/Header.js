@@ -3,6 +3,7 @@ import {graphql} from 'react-apollo';
 import query from '../queries/CurrentUser';
 import {Link} from 'react-router';
 import gql from 'graphql-tag';
+
  class Header extends Component {
      logout(){
         this.props.mutate({
